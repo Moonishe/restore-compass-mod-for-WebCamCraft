@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "restorecompassmod",
+	"version": "${version}",
+	"name": "Restore Compass Mod",
+	"description": "Adds a recovery compass on respawn",
+	"authors": ["moonishe"],
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.moonishe.restorecompass.Restorecompassmod"
+		]
+	},
+	"mixins": [
+		"restorecompassmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"fabric-api": "*",
+		"minecraft": "1.21.1"
+	}
+}

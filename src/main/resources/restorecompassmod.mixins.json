@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.moonishe.restorecompass.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"PlayerEntityMixin",
+		"PlayerInventoryMixin",
+		"ScreenHandlerMixin",
+		"SlotMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

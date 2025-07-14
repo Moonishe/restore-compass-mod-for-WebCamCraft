@@ -1,0 +1,48 @@
+plugins {
+	id 'fabric-loom' version '1.7.4'
+	id 'maven-publish'
+}
+
+version = '1.0.0'
+group = 'com.moonishe'
+archivesBaseName = 'restorecompassmod'
+
+// ↓↓↓ ИСПРАВЛЕННЫЙ БЛОК ↓↓↓
+repositories {
+	maven { url 'https://maven.fabricmc.net/' }
+	maven { url 'https://libraries.minecraft.net/' }
+	mavenCentral()
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:1.21.1"
+	mappings loom.officialMojangMappings()
+
+	// ↓↓↓ ОБНОВЛЕННЫЕ ВЕРСИИ ↓↓↓
+	modImplementation "net.fabricmc:fabric-loader:0.16.14"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.116.4+1.21.1"
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+loom {
+	runs {
+		client {
+			ideConfigGenerated = true
+		}
+		// Можно также добавить конфигурацию для сервера, если нужно
+		server {
+			ideConfigGenerated = true
+		}
+	}
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
